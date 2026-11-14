@@ -156,7 +156,7 @@ async function load() {
 function toast(t){ const el = document.getElementById('toast'); el.textContent = t; el.classList.add('on'); clearTimeout(toast.t); toast.t = setTimeout(()=>el.classList.remove('on'), 2200); }
 const me = () => S.members.find(x => x.id === meId);
 const mem = id => S.members.find(x => x.id === id);
-const initials = n => (n||'?').slice(0,2);
+const initials = n => (n||'?').trim().charAt(0).toUpperCase();
 function avatar(m, size){ if(!m) return ''; const st = `width:${size}px;height:${size}px;font-size:${Math.round(size/3)}px;background:${m.color}`;
   return `<span class="av" style="${st}">${m.avatar ? `<img alt="" src="${esc(m.avatar)}">` : esc(initials(m.name))}</span>`; }
 
