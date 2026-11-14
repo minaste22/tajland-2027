@@ -108,6 +108,62 @@ nav.tabs .in{display:flex;width:100%;max-width:520px}
 .toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 16px;border-radius:12px;font-weight:700;font-size:14px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:20;max-width:90vw;text-align:center}
 .toast.on{opacity:1}
 .loading{padding:60px 20px;text-align:center;color:var(--muted)}
+
+.ptitle{font-size:30px;margin:4px 0 16px}
+.rsec{margin-bottom:22px;padding-bottom:6px;border-bottom:1.5px dashed var(--dash)}
+.rhead{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.rhead h2{font:700 20px 'Fraunces',Georgia,serif;margin:0}
+.rhead p{margin:0;color:var(--muted);font-size:14px;font-weight:600}
+.sdot{width:16px;height:16px;border-radius:50%;flex:none;border:1.5px solid rgba(45,42,74,.2)}
+.lnk{background:none;border:1.5px solid #D8D0BE;border-radius:10px;min-height:40px;padding:0 12px;font-weight:800;font-size:13px}
+.brow{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:12px;margin-bottom:8px}
+.bic{width:36px;height:36px;border-radius:50%;background:#F3ECDD;display:flex;align-items:center;justify-content:center;flex:none}
+.bt{flex:1;font-weight:700;line-height:1.3}
+.bt small{display:block;color:var(--muted);font-weight:600;font-size:13px;margin-top:2px}
+.all{font-weight:800;color:var(--muted);font-size:12px}
+.add.sm{min-height:44px;font-size:14px;margin-top:4px}
+.empty.small{padding:6px 0 10px;text-align:left;font-size:14px;margin:0}
+.kinds{display:flex;gap:6px;margin-bottom:14px}
+.kb{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;min-height:58px;border-radius:12px;border:1.5px solid #D8D0BE;background:#fff;font-weight:700;font-size:11px}
+.kb[aria-pressed=true]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.f select{border:1.5px solid #D8D0BE;border-radius:12px;padding:12px;background:#fff;font-size:16px}
+.row2 .f{flex:1}
+fieldset.f{border:0;padding:0;margin:0 0 14px}
+fieldset.f legend{font-weight:800;font-size:13px;margin-bottom:6px}
+.wrap{display:flex;flex-wrap:wrap;gap:8px}
+.pp{display:flex;align-items:center;gap:6px;background:#fff;border:1.5px solid #D8D0BE;border-radius:999px;padding:4px 12px 4px 4px;font-weight:700;font-size:14px;min-height:40px}
+.pp input{width:18px;height:18px;accent-color:var(--navy)}
+.maps{font-weight:800;font-size:14px;color:var(--navy)}
+.seg{display:flex;gap:4px;background:#EFE6D4;border-radius:12px;padding:4px;margin-bottom:16px}
+.seg button{flex:1;min-height:42px;border:0;border-radius:10px;background:transparent;font-weight:800;font-size:14px;color:var(--muted)}
+.seg button[aria-pressed=true]{background:var(--navy);color:#fff}
+.mt{font:700 22px 'Fraunces',Georgia,serif;margin:4px 0 10px}
+.grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;margin-bottom:18px}
+.wd{font:800 10px 'Nunito';letter-spacing:1px;color:var(--muted);text-align:center;padding-bottom:2px}
+.cell{height:52px;border-radius:10px;position:relative;background:#F3ECDD;border:0;padding:5px 6px;text-align:left;display:block}
+.cell:disabled{background:transparent;color:#B9B1A0;cursor:default}
+.cell .n{font:700 14px 'Fraunces',Georgia,serif}
+.cell .ic{position:absolute;right:4px;bottom:4px;width:20px;height:20px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center}
+.legend .lrow{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:none;border:0;border-bottom:1.5px dashed var(--dash);padding:12px 0}
+.lr{font-weight:800;font-size:13px;white-space:nowrap}
+.days{padding:0 0 4px;margin:0 -20px 4px;padding-left:20px;padding-right:20px}
+.dchip{display:flex;flex-direction:column;justify-content:center;line-height:1.15;min-height:52px}
+.dchip small{font-size:11px;font-weight:700;opacity:.75}
+.dhead{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:14px 0 12px}
+.dhead h1{font-size:26px}
+.dhead span{color:var(--muted);font-weight:700;font-size:14px;white-space:nowrap}
+.moves{margin-bottom:6px}
+.slot{margin-bottom:14px}
+.pitem{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:12px;margin-bottom:8px}
+.ph{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.pt{font:700 15px 'Fraunces',Georgia,serif;width:46px;flex:none}
+.v.sm{min-height:40px;font-size:13px}
+.v[data-on=da]{background:var(--navy);border-color:var(--navy);color:#fff}
+.heads{margin-bottom:12px}
+.when{color:var(--red)}
+.count{display:flex;align-items:center;gap:14px;background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:14px 18px;margin-bottom:12px;font-weight:700}
+.count .big{font-size:44px;font-weight:700;line-height:1;color:var(--red)}
+.count small{display:block;color:var(--muted);font-weight:600;font-size:13px}
 @media (prefers-reduced-motion:reduce){.toast{transition:none}}
 </style>
 </head>
@@ -129,7 +185,7 @@ else if (code) { try { history.replaceState(null, '', location.pathname + locati
 let meId = ls.get('tj_me');
 let pin = ls.get('tj_pin');
 
-const S = { members: [], stops: [], acts: [], votes: [], tab: 'danas', stop: null };
+const S = { members: [], stops: [], acts: [], votes: [], plans: [], joins: [], books: [], tab: 'danas', stop: null, planMode: 'kal', day: null };
 const $root = document.getElementById('root');
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
@@ -144,13 +200,16 @@ async function api(path, opt = {}) {
 }
 
 async function load() {
-  const [m, s, a, v] = await Promise.all([
+  const [m, s, a, v, ...rest] = await Promise.all([
     api('/members?select=*&order=sort'),
     api('/stops?select=*&order=sort'),
     api('/activities?select=*&order=created_at'),
-    api('/votes?select=activity_id,member_id,value')
+    api('/votes?select=activity_id,member_id,value'),
+    api('/plan_items?select=*&order=created_at'),
+    api('/plan_joins?select=*'),
+    api('/bookings?select=*&order=created_at')
   ]);
-  S.members = m; S.stops = s; S.acts = a; S.votes = v;
+  S.members = m; S.stops = s; S.acts = a; S.votes = v; S.plans = rest[0]; S.joins = rest[1]; S.books = rest[2];
   if (!S.stop && s.length) S.stop = s[0].id;
 }
 
@@ -216,10 +275,21 @@ function viewDanas(){ const m = me();
   `<main>
     <p class="label">Naša ruta</p>
     <div class="route">${S.stops.map((s,i) => (i?'<span class="dash"></span>':'') + `<button class="st" data-stop="${s.id}" aria-label="${esc(s.name)}">${esc(s.name.split(' (')[0].replace(' ','\n')).replace('\n','<br>')}</button>`).join('')}</div>
+    ${homeNext()}
     ${unvoted ? `<button class="nudge" data-tab="pasos"><span>Imaš <b>${unvoted}</b> ${unvoted===1?'aktivnost':'aktivnosti'} bez tvog glasa</span><span aria-hidden="true">→</span></button>` : ''}
     <p class="label">Najpopularnije za sada</p>
     ${top.length ? `<div class="top3">${top.map((a,i) => { const c = counts(a.id); return `<button class="trow" data-stop="${a.stop_id}"><span class="rank">${i+1}</span><span class="tt">${esc(a.title)}<small>${esc(stopName(a.stop_id))} · Da ${c.da} · Možda ${c.mozda}</small></span></button>`; }).join('')}</div>` : `<div class="card empty">Još niko nije glasao. Otvori Pasoš i počni!</div>`}
   </main>`; }
+
+function homeNext(){ const t = todayIso(), tm = addD(t, 1), r = tripRange(); let out = '';
+  const hb = S.books.filter(forMe).flatMap(b => { const x = [];
+    if (b.kind === 'hotel') { if (b.start_date === t || b.start_date === tm) x.push([b.start_date, b, 'Check-in']); if (b.end_date === t || b.end_date === tm) x.push([b.end_date, b, 'Check-out']); }
+    else if (b.start_date === t || b.start_date === tm) x.push([b.start_date, b, '']); return x; });
+  if (hb.length) out += `<div class="heads">${hb.map(([d, b, w]) => `<button class="brow" data-book="${b.id}"><span class="bic">${kicon(b.kind)}</span><span class="bt"><b class="when">${d === t ? 'Danas' : 'Sutra'}</b> ${w ? w + ': ' : ''}${esc(b.title)}<small>${esc(bookSub(b))}</small></span></button>`).join('')}</div>`;
+  if (r && t < r.start) { const n = diff(t, r.start); out += `<div class="count"><span class="big serif">${n}</span><span>${n === 1 ? 'dan' : 'dana'} do Tajlanda<small>Polazak oko ${fmt(r.start)}</small></span></div>`; }
+  else if (r && t <= r.end) { const its = S.plans.filter(p => p.day === t).sort((a,b) => ['jutro','popodne','vece'].indexOf(a.slot) - ['jutro','popodne','vece'].indexOf(b.slot) || (a.time||'99').localeCompare(b.time||'99'));
+    out += `<button class="nudge" data-tab="plan" data-pmode2="dan"><span>Danas: <b>${its.length ? esc(its[0].title) : 'slobodan dan'}</b></span><span aria-hidden="true">→</span></button>`; }
+  return out; }
 
 function viewPasos(){ const s = S.stops.find(x => x.id === S.stop) || S.stops[0];
   const acts = S.acts.filter(a => a.stop_id === s.id);
@@ -258,8 +328,8 @@ function render(){
   let body = '';
   if (S.tab === 'danas') body = viewDanas();
   else if (S.tab === 'pasos') body = viewPasos();
-  else if (S.tab === 'plan') body = viewSoon('Plan', 'Plan po danima i kalendar stižu uskoro. Za sada glasajte u Pasošu, a najpopularnije aktivnosti ulaze u plan.');
-  else body = viewSoon('Rezervacije', 'Hoteli, letovi i brodovi na jednom mestu stižu uskoro.');
+  else if (S.tab === 'plan') body = viewPlan();
+  else body = viewRez();
   $root.innerHTML = `<div class="app">${body}</div>` + tabs();
 }
 
@@ -330,13 +400,186 @@ function setPhoto(file, id){ const img = new Image(); const url = URL.createObje
   img.onerror = () => toast('Ta slika ne može da se otvori.');
   img.src = url; }
 
+// ---------- dates ----------
+const MON = ['jan','feb','mar','apr','maj','jun','jul','avg','sep','okt','nov','dec'];
+const MONL = ['Januar','Februar','Mart','April','Maj','Jun','Jul','Avgust','Septembar','Oktobar','Novembar','Decembar'];
+const WD = ['ned','pon','uto','sre','čet','pet','sub'];
+const D = s => { const [y,m,d] = s.split('-').map(Number); return new Date(Date.UTC(y, m-1, d)); };
+const iso = dt => dt.toISOString().slice(0,10);
+const addD = (s, n) => { const d = D(s); d.setUTCDate(d.getUTCDate() + n); return iso(d); };
+const diff = (a, b) => Math.round((D(b) - D(a)) / 864e5);
+const todayIso = () => { const n = new Date(); return iso(new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate()))); };
+const fmt = s => { const d = D(s); return `${d.getUTCDate()}. ${MON[d.getUTCMonth()]}`; };
+const fmtW = s => { const d = D(s); return `${WD[d.getUTCDay()]} ${d.getUTCDate()}. ${MON[d.getUTCMonth()]}`; };
+const span = (a, b) => a && b ? `${D(a).getUTCDate()}${D(a).getUTCMonth()===D(b).getUTCMonth() ? '' : '. ' + MON[D(a).getUTCMonth()]}–${fmt(b)}` : 'datumi nisu upisani';
+function tripRange(){ const s = S.stops.filter(x => x.start_date && x.end_date); if (!s.length) return null;
+  return { start: s.map(x => x.start_date).sort()[0], end: s.map(x => x.end_date).sort().slice(-1)[0] }; }
+function tripDays(){ const r = tripRange(); if (!r) return []; const out = []; for (let d = r.start; d <= r.end; d = addD(d, 1)) out.push(d); return out; }
+function stopOn(d){ return S.stops.find(s => s.start_date && s.end_date && s.start_date <= d && d < s.end_date) || S.stops.filter(s => s.end_date === d).slice(-1)[0]; }
+
+// ---------- bookings ----------
+const KINDS = { hotel:'Smeštaj', let:'Let', voz:'Voz', brod:'Brod / trajekt', ostalo:'Ostalo' };
+const KICON = {
+  hotel:'<path d="M3 18V8M3 14h18v4M21 14v-3a3 3 0 00-3-3h-7v6"/><circle cx="7" cy="11" r="2"/>',
+  let:'<path d="M2 16l20-6-3-3-7 2-5-5-2 1 3 6-4 1-2-2-1 1z"/>',
+  voz:'<rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 11h14M8 21l2-4M16 21l-2-4"/><circle cx="9" cy="14" r=".8"/><circle cx="15" cy="14" r=".8"/>',
+  brod:'<path d="M3 15h18l-3 5H6z"/><path d="M12 4v11M12 5l6 8h-6"/>',
+  ostalo:'<path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>'
+};
+const kicon = (k, size=20) => `<svg aria-hidden="true" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${KICON[k]||KICON.ostalo}</svg>`;
+const forMe = b => !b.people || !b.people.length || b.people.includes(meId);
+const whoList = b => (b.people && b.people.length ? b.people.map(mem) : S.members).filter(Boolean);
+function bookSub(b){ const t = [];
+  if (b.kind === 'hotel') { if (b.start_date) t.push('Check-in ' + fmt(b.start_date) + (b.start_time ? ' ' + b.start_time : '')); if (b.end_date) t.push('check-out ' + fmt(b.end_date) + (b.end_time ? ' ' + b.end_time : '')); }
+  else { if (b.from_place || b.to_place) t.push(`${b.from_place||'?'} → ${b.to_place||'?'}`); if (b.start_date) t.push(fmt(b.start_date) + (b.start_time ? ' u ' + b.start_time : '')); }
+  return t.join(' · '); }
+function bookRow(b){ const who = whoList(b);
+  return `<button class="brow" data-book="${b.id}"><span class="bic">${kicon(b.kind)}</span><span class="bt">${esc(b.title)}<small>${esc(bookSub(b))}</small></span>
+  <span class="yes">${who.length === S.members.length ? '<small class="all">svi</small>' : who.map(m => avatar(m, 22)).join('')}</span></button>`; }
+
+function viewRez(){ const m = me(); const ed = m.can_edit;
+  const sortB = (a, b) => (a.start_date||'9') .localeCompare(b.start_date||'9') || (a.start_time||'').localeCompare(b.start_time||'');
+  const travel = S.books.filter(b => !b.stop_id).sort(sortB);
+  return header() + `<main>
+    <h1 class="ptitle">Rezervacije</h1>
+    <section class="rsec"><div class="rhead"><div><h2>Dolazak i povratak</h2><p>Svako upisuje svoje letove do Tajlanda i nazad.</p></div></div>
+      ${travel.length ? travel.map(bookRow).join('') : '<p class="empty small">Još nema letova.</p>'}
+      ${ed ? `<button class="add sm" data-addbook="" data-kind="let">+ Dodaj let</button>` : ''}</section>
+    ${S.stops.map(s => { const bs = S.books.filter(b => b.stop_id === s.id).sort(sortB); const n = s.start_date && s.end_date ? diff(s.start_date, s.end_date) : 0;
+      return `<section class="rsec"><div class="rhead"><span class="sdot" style="background:${s.color}"></span><div style="flex:1"><h2>${esc(s.name)}</h2><p>${span(s.start_date, s.end_date)}${n ? ` · ${n} ${n===1?'noć':n<5?'noći':'noći'}` : ''}</p></div>
+        ${ed ? `<button class="lnk" data-dates="${s.id}">Datumi</button>` : ''}</div>
+        ${bs.length ? bs.map(bookRow).join('') : '<p class="empty small">Još nema smeštaja ni prevoza.</p>'}
+        ${ed ? `<button class="add sm" data-addbook="${s.id}" data-kind="hotel">+ Dodaj za ${esc(s.name.split(' (')[0])}</button>` : ''}</section>`; }).join('')}
+  </main>`; }
+
+function sheetDates(id){ const s = S.stops.find(x => x.id === id);
+  openSheet(`<h2>Datumi · ${esc(s.name)}</h2><form id="fdat">
+  <div class="row2"><div class="f"><label for="ds">Dolazak</label><input id="ds" type="date" value="${s.start_date||''}"></div><div class="f"><label for="de">Odlazak</label><input id="de" type="date" value="${s.end_date||''}"></div></div>
+  <p id="derr" role="alert" style="color:var(--red);font-weight:700;min-height:22px;margin:0 0 8px"></p>
+  <div class="row2"><button type="button" class="btn ghost" data-act="close">Otkaži</button><button class="btn" type="submit">Sačuvaj</button></div></form>`);
+  sheet.querySelector('#fdat').addEventListener('submit', async e => { e.preventDefault();
+    const a = sheet.querySelector('#ds').value || null, b = sheet.querySelector('#de').value || null;
+    if (a && b && b <= a) { sheet.querySelector('#derr').textContent = 'Odlazak mora biti posle dolaska.'; return; }
+    try { await api('/stops?id=eq.' + id, { method:'PATCH', body:{ start_date: a, end_date: b } }); s.start_date = a; s.end_date = b; closeSheet(); render(); toast('Datumi sačuvani.'); }
+    catch(err){ toast('Nije sačuvano.'); } });
+}
+
+function sheetBook(id, stopId, kind){ const b = id ? S.books.find(x => x.id === id) : { kind: kind || 'hotel', stop_id: stopId || null, people: (kind === 'let' ? [meId] : []) };
+  const ed = me().can_edit; const dis = ed ? '' : 'disabled';
+  const people = b.people && b.people.length ? b.people : S.members.map(x => x.id);
+  const stopOpts = `<option value="">Dolazak i povratak</option>` + S.stops.map(s => `<option value="${s.id}" ${s.id===b.stop_id?'selected':''}>${esc(s.name)}</option>`).join('');
+  const kindBtns = Object.entries(KINDS).map(([k,l]) => `<button type="button" class="kb" data-k="${k}" aria-pressed="${b.kind===k}" ${dis}>${kicon(k,18)}<span>${l.split(' ')[0]}</span></button>`).join('');
+  openSheet(`<h2>${id ? (ed ? 'Izmeni rezervaciju' : 'Rezervacija') : 'Nova rezervacija'}</h2><form id="fbook">
+  <div class="kinds" role="group" aria-label="Vrsta">${kindBtns}</div>
+  <div class="f"><label for="bt">Naziv</label><input id="bt" type="text" maxlength="120" required value="${esc(b.title||'')}" placeholder="npr. Hotel na plaži ili Let Beograd – Bangkok" ${dis}></div>
+  <div class="f"><label for="bs">Za koje mesto</label><select id="bs" ${dis}>${stopOpts}</select></div>
+  <div class="row2 tr"><div class="f"><label for="bf">Odakle</label><input id="bf" type="text" value="${esc(b.from_place||'')}" ${dis}></div><div class="f"><label for="bto">Dokle</label><input id="bto" type="text" value="${esc(b.to_place||'')}" ${dis}></div></div>
+  <div class="row2"><div class="f"><label for="b1" id="l1">Datum</label><input id="b1" type="date" value="${b.start_date||''}" ${dis}></div><div class="f"><label for="b1t">Vreme</label><input id="b1t" type="time" value="${esc(b.start_time||'')}" ${dis}></div></div>
+  <div class="row2"><div class="f"><label for="b2" id="l2">Datum</label><input id="b2" type="date" value="${b.end_date||''}" ${dis}></div><div class="f"><label for="b2t">Vreme</label><input id="b2t" type="time" value="${esc(b.end_time||'')}" ${dis}></div></div>
+  <fieldset class="f who2"><legend>Za koga</legend><div class="wrap">${S.members.map(x => `<label class="pp"><input type="checkbox" value="${x.id}" ${people.includes(x.id)?'checked':''} ${dis}>${avatar(x, 28)}${esc(x.name)}</label>`).join('')}</div></fieldset>
+  <div class="f"><label for="ba">Adresa</label><input id="ba" type="text" value="${esc(b.address||'')}" ${dis}>${b.address ? `<a class="maps" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(b.address)}" target="_blank" rel="noopener">Otvori u Mapama →</a>` : ''}</div>
+  <div class="row2"><div class="f"><label for="bc">Broj rezervacije</label><input id="bc" type="text" value="${esc(b.confirmation||'')}" ${dis}></div><div class="f"><label for="bl">Link</label><input id="bl" type="url" value="${esc(b.link||'')}" ${dis}></div></div>
+  ${b.link ? `<a class="maps" href="${esc(b.link)}" target="_blank" rel="noopener">Otvori link →</a>` : ''}
+  <div class="f"><label for="bn">Napomena</label><textarea id="bn" ${dis}>${esc(b.notes||'')}</textarea></div>
+  <p id="berr" role="alert" style="color:var(--red);font-weight:700;min-height:22px;margin:0 0 8px"></p>
+  ${ed ? `<div class="row2"><button type="button" class="btn ghost" data-act="close">Otkaži</button><button class="btn" type="submit">Sačuvaj</button></div>
+  ${id ? `<button type="button" class="btn red" id="bdel" style="width:100%;margin-top:10px">Obriši</button>` : ''}` : `<button type="button" class="btn" style="width:100%" data-act="close">Zatvori</button>`}</form>`);
+  let kind2 = b.kind;
+  const sync = () => { sheet.querySelectorAll('.kb').forEach(x => x.setAttribute('aria-pressed', x.dataset.k === kind2));
+    const h = kind2 === 'hotel'; sheet.querySelector('.tr').style.display = h ? 'none' : 'flex';
+    sheet.querySelector('#l1').textContent = h ? 'Check-in' : 'Polazak'; sheet.querySelector('#l2').textContent = h ? 'Check-out' : 'Dolazak'; };
+  sync();
+  sheet.querySelectorAll('.kb').forEach(x => x.addEventListener('click', () => { kind2 = x.dataset.k; sync(); }));
+  if (!ed) return;
+  sheet.querySelector('#bdel')?.addEventListener('click', async () => {
+    try { await api('/bookings?id=eq.' + id, { method:'DELETE' }); S.books = S.books.filter(x => x.id !== id); closeSheet(); render(); toast('Obrisano.'); } catch(e){ toast('Nije obrisano.'); } });
+  sheet.querySelector('#fbook').addEventListener('submit', async e => { e.preventDefault();
+    const v = q => sheet.querySelector(q).value.trim() || null;
+    const ppl = [...sheet.querySelectorAll('.who2 input:checked')].map(x => x.value);
+    const row = { kind: kind2, title: v('#bt'), stop_id: v('#bs'), from_place: kind2==='hotel' ? null : v('#bf'), to_place: kind2==='hotel' ? null : v('#bto'),
+      start_date: v('#b1'), start_time: v('#b1t'), end_date: v('#b2'), end_time: v('#b2t'), address: v('#ba'), confirmation: v('#bc'), link: v('#bl'), notes: v('#bn'),
+      people: ppl.length === S.members.length ? [] : ppl };
+    if (!row.title) return;
+    if (!ppl.length) { sheet.querySelector('#berr').textContent = 'Izaberi bar jednu osobu.'; return; }
+    if (row.start_date && row.end_date && row.end_date < row.start_date) { sheet.querySelector('#berr').textContent = 'Drugi datum ne može biti pre prvog.'; return; }
+    try { if (id) { const [r] = await api('/bookings?id=eq.' + id, { method:'PATCH', prefer:'return=representation', body: row }); Object.assign(b, r); }
+      else { const [r] = await api('/bookings', { method:'POST', prefer:'return=representation', body: { ...row, created_by: meId } }); S.books.push(r); }
+      closeSheet(); render(); toast('Sačuvano!'); }
+    catch(err){ toast('Nije sačuvano. Pokušaj ponovo.'); } });
+}
+
+// ---------- plan ----------
+function viewPlan(){ const days = tripDays();
+  const seg = `<div class="seg"><button data-pmode="kal" aria-pressed="${S.planMode==='kal'}">Kalendar</button><button data-pmode="dan" aria-pressed="${S.planMode==='dan'}">Po danima</button></div>`;
+  if (!days.length) return header() + `<main>${seg}<div class="card empty">Još nema datuma. Upiši datume za gradove u Rezervacijama.</div></main>`;
+  return header() + `<main>${seg}${S.planMode === 'kal' ? viewCal(days) : viewDay(days)}</main>`; }
+
+function viewCal(days){ const r = tripRange(); const t = todayIso();
+  const months = []; let d = r.start.slice(0,7) + '-01';
+  while (d <= r.end) { months.push(d); const x = D(d); x.setUTCMonth(x.getUTCMonth() + 1); d = iso(x); }
+  const travelOn = day => S.books.filter(b => b.kind !== 'hotel' && b.start_date === day);
+  return months.map(m0 => { const first = D(m0), y = first.getUTCFullYear(), mo = first.getUTCMonth();
+    const lead = (first.getUTCDay() + 6) % 7, n = new Date(Date.UTC(y, mo + 1, 0)).getUTCDate();
+    let cells = ''; for (let i = 0; i < lead; i++) cells += '<span></span>';
+    for (let i = 1; i <= n; i++) { const day = iso(new Date(Date.UTC(y, mo, i))); const inT = day >= r.start && day <= r.end; const s = inT ? stopOn(day) : null; const tr = travelOn(day);
+      cells += `<button class="cell" ${inT ? `data-day="${day}"` : 'disabled'} style="${s ? `background:${s.color}` : ''}${day===t ? ';box-shadow:inset 0 0 0 2.5px var(--navy)' : ''}" aria-label="${fmtW(day)}${s ? ', ' + esc(s.name) : ''}"><span class="n">${i}</span>${tr.length ? `<span class="ic">${kicon(tr[0].kind, 12)}</span>` : ''}</button>`; }
+    return `<h2 class="mt">${MONL[mo]} ${y}</h2><div class="grid">${['PON','UTO','SRE','ČET','PET','SUB','NED'].map(w => `<span class="wd">${w}</span>`).join('')}${cells}</div>`; }).join('') +
+  `<div class="legend">${S.stops.filter(s => s.start_date).map(s => { const n = diff(s.start_date, s.end_date); const h = S.books.find(b => b.stop_id === s.id && b.kind === 'hotel');
+    return `<button class="lrow" data-day="${s.start_date}"><span class="sdot" style="background:${s.color}"></span><span class="bt">${esc(s.name)}<small>${h ? esc(h.title) : 'Smeštaj još nije upisan'} · ${n} ${n<5?'noći':'noći'}</small></span><span class="lr">${span(s.start_date, s.end_date)}</span></button>`; }).join('')}</div>`; }
+
+function viewDay(days){ if (!S.day || !days.includes(S.day)) { const t = todayIso(); S.day = days.includes(t) ? t : days[0]; }
+  const d = S.day, s = stopOn(d), idx = days.indexOf(d) + 1, ed = me().can_edit;
+  const chips = `<div class="chips days">${days.map((x,i) => `<button class="chip dchip" data-day="${x}" aria-pressed="${x===d}"><small>Dan ${i+1}</small>${D(x).getUTCDate()}. ${MON[D(x).getUTCMonth()]}</button>`).join('')}</div>`;
+  const moves = S.books.filter(b => (b.kind === 'hotel' && (b.start_date === d || b.end_date === d)) || (b.kind !== 'hotel' && b.start_date === d));
+  const items = S.plans.filter(p => p.day === d);
+  const slot = (k, l) => { const its = items.filter(p => p.slot === k).sort((a,b) => (a.time||'99').localeCompare(b.time||'99'));
+    return `<section class="slot"><p class="label">${l}</p>${its.length ? its.map(p => { const going = S.joins.filter(j => j.plan_item_id === p.id && j.going).map(j => mem(j.member_id)).filter(Boolean);
+      const mine = S.joins.find(j => j.plan_item_id === p.id && j.member_id === meId);
+      return `<div class="pitem"><div class="ph"><span class="pt">${p.time ? esc(p.time) : '—'}</span><span class="bt">${esc(p.title)}</span><span class="yes">${going.map(g => avatar(g, 24)).join('')}</span>${ed ? `<button class="x" data-delplan="${p.id}" aria-label="Ukloni ${esc(p.title)}">×</button>` : ''}</div>
+        <div class="votes"><button class="v sm" data-join="${p.id}" data-go="1" ${mine && mine.going ? 'data-on="da" aria-pressed="true"' : 'aria-pressed="false"'}>Idem</button><button class="v sm" data-join="${p.id}" data-go="0" ${mine && !mine.going ? 'data-on="ne" aria-pressed="true"' : 'aria-pressed="false"'}>Preskačem</button></div></div>`; }).join('') : '<p class="empty small">Ništa još.</p>'}</section>`; };
+  return chips + `<div class="dhead"><h1>Dan ${idx}${s ? ' · ' + esc(s.name.split(' (')[0]) : ''}</h1><span>${fmtW(d)}</span></div>
+    ${moves.length ? `<div class="moves">${moves.map(b => `<button class="brow" data-book="${b.id}"><span class="bic">${kicon(b.kind)}</span><span class="bt">${b.kind === 'hotel' ? (b.start_date === d ? 'Check-in: ' : 'Check-out: ') : ''}${esc(b.title)}<small>${esc(bookSub(b))}</small></span></button>`).join('')}</div>` : ''}
+    ${slot('jutro','Jutro')}${slot('popodne','Popodne')}${slot('vece','Veče')}
+    ${ed ? `<button class="add" data-addplan="${d}">+ Dodaj u ovaj dan</button>` : ''}`; }
+
+function sheetPlan(day){ const s = stopOn(day);
+  const acts = S.acts.filter(a => !s || a.stop_id === s.id).sort((a,b) => score(b.id) - score(a.id));
+  openSheet(`<h2>Dodaj · ${fmtW(day)}</h2><form id="fplan">
+  <div class="f"><label for="pa">Iz Pasoša${s ? ' · ' + esc(s.name) : ''}</label><select id="pa"><option value="">— Nešto novo —</option>${acts.map(a => `<option value="${a.id}">${esc(a.title)} (Da ${counts(a.id).da})</option>`).join('')}</select></div>
+  <div class="f" id="pnw"><label for="pn">Ili upiši novo</label><input id="pn" type="text" maxlength="120" placeholder="npr. Večera na plaži"></div>
+  <div class="row2"><div class="f"><label for="ps">Deo dana</label><select id="ps"><option value="jutro">Jutro</option><option value="popodne">Popodne</option><option value="vece">Veče</option></select></div>
+  <div class="f"><label for="pt">Vreme (nije obavezno)</label><input id="pt" type="time"></div></div>
+  <p id="perr2" role="alert" style="color:var(--red);font-weight:700;min-height:22px;margin:0 0 8px"></p>
+  <div class="row2"><button type="button" class="btn ghost" data-act="close">Otkaži</button><button class="btn" type="submit">Dodaj</button></div></form>`);
+  const sel = sheet.querySelector('#pa'); sel.addEventListener('change', () => { sheet.querySelector('#pnw').style.display = sel.value ? 'none' : ''; });
+  sheet.querySelector('#fplan').addEventListener('submit', async e => { e.preventDefault();
+    const aid = sel.value || null; const title = aid ? S.acts.find(a => a.id === aid).title : sheet.querySelector('#pn').value.trim();
+    if (!title) { sheet.querySelector('#perr2').textContent = 'Izaberi aktivnost ili upiši novu.'; return; }
+    try { const [r] = await api('/plan_items', { method:'POST', prefer:'return=representation', body:{ day, title, activity_id: aid, slot: sheet.querySelector('#ps').value, time: sheet.querySelector('#pt').value || null, created_by: meId } });
+      S.plans.push(r); closeSheet(); render(); toast('Dodato u plan!'); }
+    catch(err){ toast('Nije sačuvano.'); } });
+}
+
 // ---------- events ----------
 document.addEventListener('click', async e => {
   const t = e.target.closest('button,[data-act]'); if (!t) return;
   if (t.dataset.pick) { const m = mem(t.dataset.pick);
     if (m.has_pin) { sheetPin(m); return; }
     meId = m.id; pin = null; ls.del('tj_pin'); ls.set('tj_me', meId); render(); return; }
-  if (t.dataset.tab) { S.tab = t.dataset.tab; render(); scrollTo(0,0); return; }
+  if (t.dataset.tab) { S.tab = t.dataset.tab; if (t.dataset.pmode2) { S.planMode = t.dataset.pmode2; S.day = todayIso(); } render(); scrollTo(0,0); return; }
+  if (t.dataset.pmode) { S.planMode = t.dataset.pmode; render(); return; }
+  if (t.dataset.day) { S.day = t.dataset.day; S.planMode = 'dan'; S.tab = 'plan'; render(); if (t.classList.contains('dchip')) { document.querySelector('.dchip[aria-pressed=true]')?.scrollIntoView({inline:'center', block:'nearest'}); } else scrollTo(0,0); return; }
+  if (t.dataset.book) { sheetBook(t.dataset.book); return; }
+  if (t.dataset.addbook !== undefined) { sheetBook(null, t.dataset.addbook || null, t.dataset.kind); return; }
+  if (t.dataset.dates) { sheetDates(t.dataset.dates); return; }
+  if (t.dataset.addplan) { sheetPlan(t.dataset.addplan); return; }
+  if (t.dataset.delplan) { const id = t.dataset.delplan; const before = S.plans.slice(); S.plans = S.plans.filter(x => x.id !== id); render();
+    try { await api('/plan_items?id=eq.' + id, { method:'DELETE' }); toast('Uklonjeno iz plana.'); } catch(err){ S.plans = before; render(); toast('Nije uklonjeno.'); } return; }
+  if (t.dataset.join) { const pid = t.dataset.join, go = t.dataset.go === '1'; const cur = S.joins.find(j => j.plan_item_id === pid && j.member_id === meId); const before = S.joins.slice();
+    S.joins = S.joins.filter(j => !(j.plan_item_id === pid && j.member_id === meId)); if (!cur || cur.going !== go) S.joins.push({ plan_item_id: pid, member_id: meId, going: go }); render();
+    try { if (cur && cur.going === go) await api(`/plan_joins?plan_item_id=eq.${pid}&member_id=eq.${meId}`, { method:'DELETE' });
+      else await api('/plan_joins?on_conflict=plan_item_id,member_id', { method:'POST', prefer:'resolution=merge-duplicates', body:{ plan_item_id: pid, member_id: meId, going: go } }); }
+    catch(err){ S.joins = before; render(); toast('Nije sačuvano. Proveri internet.'); } return; }
   if (t.dataset.stop) { S.stop = t.dataset.stop; S.tab = 'pasos'; render(); scrollTo(0,0); return; }
   if (t.dataset.del) { sheetDel(t.dataset.del); return; }
   if (t.dataset.vote) {
