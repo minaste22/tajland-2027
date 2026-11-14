@@ -126,6 +126,7 @@ let code = ls.get('tj_code');
 const hm = location.hash.match(/k=([A-Za-z0-9]+)/);
 if (hm) { code = hm[1]; ls.set('tj_code', code); history.replaceState(null, '', location.pathname + location.search); }
 let meId = ls.get('tj_me');
+let pin = ls.get('tj_pin');
 
 const S = { members: [], stops: [], acts: [], votes: [], tab: 'danas', stop: null };
 const $root = document.getElementById('root');
@@ -134,6 +135,7 @@ const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt
 async function api(path, opt = {}) {
   const h = { apikey: KEY, 'x-trip-code': code || '', 'Content-Type': 'application/json' };
   if (meId) h['x-member-id'] = meId;
+  if (pin) h['x-pin'] = pin;
   if (opt.prefer) h.Prefer = opt.prefer;
   const r = await fetch(SB + path, { method: opt.method || 'GET', headers: h, body: opt.body ? JSON.stringify(opt.body) : undefined });
   if (!r.ok) throw new Error((await r.text()) || r.status);
@@ -241,6 +243,7 @@ function viewSoon(title, text){ return header() + `<div class="soon">${stamp({na
 
 function render(){
   if (!code) { $root.innerHTML = `<div class="who">${FLAG}<h1>Tajland 2027</h1><p>Otvori aplikaciju preko porodičnog linka koji ti je Mina poslala.</p></div>`; return; }
+  if (me() && me().has_pin && !pin) { meId = null; ls.del('tj_me'); }
   if (!me()) { $root.innerHTML = `<div class="who"><div class="brand-l">${FLAG} TAJLAND 2027</div><h1>Ko si ti?</h1><p>Izaberi svoje ime. Telefon će te zapamtiti.</p><div class="pick">${S.members.map(m => `<button data-pick="${m.id}">${avatar(m, 72)}${esc(m.name)}</button>`).join('')}</div></div>`; return; }
   let body = '';
   if (S.tab === 'danas') body = viewDanas();
@@ -268,6 +271,19 @@ function sheetAdd(){ const s = S.stops.find(x => x.id === S.stop);
     try { const [row] = await api('/activities', { method:'POST', prefer:'return=representation', body:{ stop_id: s.id, title, note, link, created_by: meId } });
       S.acts.push(row); closeSheet(); render(); toast('Dodato! Sad svi mogu da glasaju.'); }
     catch(err){ toast('Nije sačuvano. Pokušaj ponovo.'); } });
+}
+
+function sheetPin(m){
+  openSheet(`<h2>Zdravo, ${esc(m.name)}!</h2><p style="margin:-6px 0 14px;color:var(--muted)">Unesi svoj PIN od 4 cifre.</p><form id="fpin">
+  <div class="f"><label for="fp">PIN</label><input id="fp" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="off" required style="font-size:28px;letter-spacing:12px;text-align:center"></div>
+  <p id="perr" role="alert" style="color:var(--red);font-weight:700;min-height:22px;margin:0 0 8px"></p>
+  <div class="row2"><button type="button" class="btn ghost" data-act="close">Nazad</button><button class="btn" type="submit">Uđi</button></div></form>`);
+  sheet.querySelector('#fpin').addEventListener('submit', async e => { e.preventDefault();
+    const p = sheet.querySelector('#fp').value.trim();
+    try { const ok = await api('/rpc/check_pin', { method:'POST', body:{ m: m.id, p } });
+      if (ok === true) { meId = m.id; pin = p; ls.set('tj_me', meId); ls.set('tj_pin', p); closeSheet(); render(); }
+      else { sheet.querySelector('#perr').textContent = 'Pogrešan PIN. Pokušaj ponovo.'; sheet.querySelector('#fp').value = ''; } }
+    catch(err){ sheet.querySelector('#perr').textContent = 'Nema veze. Proveri internet.'; } });
 }
 
 function sheetDel(id){ const a = S.acts.find(x => x.id === id);
@@ -307,7 +323,9 @@ function setPhoto(file, id){ const img = new Image(); const url = URL.createObje
 // ---------- events ----------
 document.addEventListener('click', async e => {
   const t = e.target.closest('button,[data-act]'); if (!t) return;
-  if (t.dataset.pick) { meId = t.dataset.pick; ls.set('tj_me', meId); render(); return; }
+  if (t.dataset.pick) { const m = mem(t.dataset.pick);
+    if (m.has_pin) { sheetPin(m); return; }
+    meId = m.id; pin = null; ls.del('tj_pin'); ls.set('tj_me', meId); render(); return; }
   if (t.dataset.tab) { S.tab = t.dataset.tab; render(); scrollTo(0,0); return; }
   if (t.dataset.stop) { S.stop = t.dataset.stop; S.tab = 'pasos'; render(); scrollTo(0,0); return; }
   if (t.dataset.del) { sheetDel(t.dataset.del); return; }
@@ -326,7 +344,7 @@ document.addEventListener('click', async e => {
   if (act === 'add') sheetAdd();
   else if (act === 'profile') sheetProfile();
   else if (act === 'close') closeSheet();
-  else if (act === 'switch') { closeSheet(); meId = null; ls.del('tj_me'); render(); }
+  else if (act === 'switch') { closeSheet(); meId = null; pin = null; ls.del('tj_me'); ls.del('tj_pin'); render(); }
   else if (act === 'copylink') { const link = location.origin + location.pathname + '#k=' + code;
     try { await navigator.clipboard.writeText(link); toast('Link kopiran. Pošalji ga porodici.'); } catch(err){ toast(link); } }
 });
