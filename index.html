@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="sr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tajland 2027</title>
+<meta name="theme-color" content="#2D2A4A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tajland 2027">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-512.png">
+<link rel="icon" href="icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE: warm family trip passport, calm enough to read all day
+   IDEA: a Thai travel passport, every city a stamped page
+   PICTURE: gold line sketch of a temple spire and a garlanded longtail boat
+   COLOUR+TYPE: Thai-flag navy, flag red ink, temple gold, passport cream; Fraunces + Nunito
+   LAYOUT: phone first, navy header, cream pages, bottom tab bar */
+:root{--navy:#2D2A4A;--red:#A51931;--gold:#E8C36A;--paper:#FBF6EC;--line:#ECE3D0;--muted:#5C5976;--dash:#DDD4C2}
+*{box-sizing:border-box;min-width:0;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--paper);color:var(--navy);font:16px/1.5 'Nunito',system-ui,sans-serif}
+body{overflow-x:clip}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.serif{font-family:'Fraunces',Georgia,serif}
+.app{max-width:520px;margin:0 auto;min-height:100vh;padding-bottom:calc(84px + env(safe-area-inset-bottom));position:relative}
+.top{background:var(--navy);color:#fff;padding:calc(18px + env(safe-area-inset-top)) 22px 16px}
+.brand{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.brand-l{display:flex;align-items:center;gap:8px;font:800 12px 'Nunito';letter-spacing:2px;color:var(--gold)}
+.flag{width:24px;height:16px;border-radius:2px;flex:none;outline:1px solid rgba(255,255,255,.35)}
+.me{width:40px;height:40px;border-radius:50%;border:2px solid var(--gold);padding:0;background:#F1E7D2;overflow:hidden;display:flex;align-items:center;justify-content:center;font:800 13px 'Nunito';color:var(--navy)}
+.av{border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:800;color:var(--navy);overflow:hidden;flex:none;background:#F1E7D2}
+.av img,.me img{width:100%;height:100%;object-fit:cover;display:block}
+h1{font-family:'Fraunces',Georgia,serif;font-weight:700;line-height:1.05;margin:0;text-wrap:balance}
+.hero h1{font-size:34px;margin:18px 0 6px}
+.hero p{margin:0;color:#D9D6EE;font-weight:600}
+.scene{display:block;width:calc(100% + 44px);margin:6px -22px -16px;height:auto}
+main{padding:18px 20px}
+.label{font:800 11px 'Nunito';letter-spacing:1.6px;color:var(--muted);margin:0 0 10px;text-transform:uppercase}
+.route{display:flex;align-items:center;margin-bottom:22px}
+.st{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font:800 9px/1.1 'Nunito';letter-spacing:.4px;flex:none;border:2px solid var(--red);color:var(--red);background:transparent;padding:2px}
+.st:nth-child(4n+1){transform:rotate(-8deg)}.st:nth-child(4n+3){transform:rotate(6deg)}
+.dash{flex:1;border-top:2px dashed #CFC8B8;margin:0 2px}
+.card{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:16px}
+.top3{display:flex;flex-direction:column;gap:8px}
+.trow{display:flex;align-items:center;gap:12px;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;text-align:left;width:100%}
+.trow .rank{font:700 18px 'Fraunces';width:22px;color:var(--red)}
+.trow .tt{flex:1;font-weight:700}
+.trow small{display:block;color:var(--muted);font-weight:600;font-size:13px}
+.nudge{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--navy);color:#fff;border:0;border-radius:16px;padding:16px;width:100%;text-align:left;font-weight:700;margin-bottom:22px}
+.nudge b{color:var(--gold)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:14px 20px 2px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;min-height:40px;padding:0 16px;border-radius:999px;border:1.5px solid #D8D0BE;background:transparent;font-weight:700;font-size:14px;white-space:nowrap}
+.chip[aria-pressed=true]{background:var(--navy);border-color:var(--navy);color:#fff}
+.cityhead{display:flex;align-items:center;gap:16px;padding:18px 20px 4px}
+.cityhead svg{flex:none;transform:rotate(-9deg)}
+.cityhead h1{font-size:28px;margin-bottom:6px}
+.cityhead p{margin:0;color:var(--muted);font-size:14px;line-height:1.45}
+.acts{padding:0 20px}
+.act{padding:14px 0;border-bottom:1.5px dashed var(--dash)}
+.act:last-of-type{border-bottom:0}
+.ahead{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px}
+.aname{flex:1;font-weight:700;font-size:16px;line-height:1.3}
+.anote{display:block;font-weight:600;font-size:13px;color:var(--muted);margin-top:2px}
+.anote a{color:var(--navy);font-weight:800}
+.yes{display:flex;padding-left:6px}
+.yes .av{width:24px;height:24px;font-size:9px;border:2px solid var(--paper);margin-left:-6px}
+.x{background:none;border:0;color:#8C879F;width:32px;height:32px;border-radius:8px;flex:none;font-size:18px;line-height:1}
+.votes{display:flex;gap:8px}
+.v{flex:1;min-height:44px;border-radius:12px;border:1.5px solid #D8D0BE;background:#fff;font-weight:700;font-size:14px}
+.v[data-on=da]{background:var(--navy);border-color:var(--navy);color:#fff}
+.v[data-on=mozda]{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.v[data-on=ne]{background:var(--red);border-color:var(--red);color:#fff}
+.add{width:100%;min-height:50px;margin:12px 0 6px;border-radius:14px;border:1.5px dashed #B9B1A0;background:transparent;font-weight:800;font-size:15px}
+.empty{color:var(--muted);text-align:center;padding:24px 8px}
+.soon{text-align:center;padding:48px 24px;color:var(--muted)}
+.soon h1{color:var(--navy);font-size:28px;margin:14px 0 8px}
+nav.tabs{position:fixed;left:0;right:0;bottom:0;background:var(--paper);border-top:1px solid var(--line);display:flex;justify-content:center;padding:4px 6px calc(10px + env(safe-area-inset-bottom));z-index:5}
+nav.tabs .in{display:flex;width:100%;max-width:520px}
+.tab{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:0;padding:8px 0;font:700 11px 'Nunito';color:#6A6785;min-height:52px}
+.tab[aria-current=page]{color:var(--red)}
+.sheet-bg{position:fixed;inset:0;background:rgba(45,42,74,.45);display:none;align-items:flex-end;justify-content:center;z-index:10}
+.sheet-bg.open{display:flex}
+.sheet{background:var(--paper);width:100%;max-width:520px;border-radius:24px 24px 0 0;padding:20px 20px calc(24px + env(safe-area-inset-bottom));max-height:90vh;overflow:auto}
+.sheet h2{font:700 22px 'Fraunces';margin:0 0 14px}
+.f{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.f label{font-weight:800;font-size:13px}
+.f input,.f textarea{border:1.5px solid #D8D0BE;border-radius:12px;padding:12px;background:#fff;font-size:16px}
+.f textarea{min-height:76px;resize:vertical}
+.row2{display:flex;gap:10px}
+.btn{flex:1;min-height:50px;border-radius:14px;border:0;background:var(--navy);color:#fff;font-weight:800;font-size:15px}
+.btn.ghost{background:transparent;border:1.5px solid #D8D0BE;color:var(--navy)}
+.btn.red{background:var(--red)}
+.who{min-height:100vh;background:var(--navy);color:#fff;padding:calc(30px + env(safe-area-inset-top)) 24px 30px;max-width:520px;margin:0 auto}
+.who h1{font-size:34px;margin:20px 0 6px}
+.who p{color:#D9D6EE;margin:0 0 24px;font-weight:600}
+.pick{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pick button{background:rgba(255,255,255,.07);border:1.5px solid rgba(232,195,106,.5);border-radius:20px;padding:18px 10px;color:#fff;display:flex;flex-direction:column;align-items:center;gap:10px;font:700 18px 'Fraunces'}
+.mem{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1.5px dashed var(--dash)}
+.mem input[type=text]{flex:1;border:1.5px solid #D8D0BE;border-radius:10px;padding:8px 10px;background:#fff;font-size:16px;font-weight:700}
+.tog{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--muted)}
+.tog input{width:22px;height:22px;accent-color:var(--navy)}
+.toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--navy);color:#fff;padding:10px 16px;border-radius:12px;font-weight:700;font-size:14px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:20;max-width:90vw;text-align:center}
+.toast.on{opacity:1}
+.loading{padding:60px 20px;text-align:center;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.toast{transition:none}}
+</style>
+</head>
+<body>
+<div id="root"><div class="loading">Učitavam…</div></div>
+<div class="sheet-bg" id="sheetbg"><div class="sheet" id="sheet" role="dialog" aria-modal="true"></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+{
+const SB = 'https://zwtrsjfyczgqkzbtlhti.supabase.co/rest/v1';
+const KEY = 'sb_publishable_stGoHQdUJ4-1zCz9UG_ycA_1A52iJtK';
+const ls = { get(k){ try{return localStorage.getItem(k)}catch(e){return null} }, set(k,v){ try{localStorage.setItem(k,v)}catch(e){} }, del(k){ try{localStorage.removeItem(k)}catch(e){} } };
+
+// family code: from link (#k=...) once, then remembered
+let code = ls.get('tj_code');
+const hm = location.hash.match(/k=([A-Za-z0-9]+)/);
+if (hm) { code = hm[1]; ls.set('tj_code', code); history.replaceState(null, '', location.pathname + location.search); }
+let meId = ls.get('tj_me');
+
+const S = { members: [], stops: [], acts: [], votes: [], tab: 'danas', stop: null };
+const $root = document.getElementById('root');
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+async function api(path, opt = {}) {
+  const h = { apikey: KEY, 'x-trip-code': code || '', 'Content-Type': 'application/json' };
+  if (meId) h['x-member-id'] = meId;
+  if (opt.prefer) h.Prefer = opt.prefer;
+  const r = await fetch(SB + path, { method: opt.method || 'GET', headers: h, body: opt.body ? JSON.stringify(opt.body) : undefined });
+  if (!r.ok) throw new Error((await r.text()) || r.status);
+  const t = await r.text(); return t ? JSON.parse(t) : null;
+}
+
+async function load() {
+  const [m, s, a, v] = await Promise.all([
+    api('/members?select=*&order=sort'),
+    api('/stops?select=*&order=sort'),
+    api('/activities?select=*&order=created_at'),
+    api('/votes?select=activity_id,member_id,value')
+  ]);
+  S.members = m; S.stops = s; S.acts = a; S.votes = v;
+  if (!S.stop && s.length) S.stop = s[0].id;
+}
+
+function toast(t){ const el = document.getElementById('toast'); el.textContent = t; el.classList.add('on'); clearTimeout(toast.t); toast.t = setTimeout(()=>el.classList.remove('on'), 2200); }
+const me = () => S.members.find(x => x.id === meId);
+const mem = id => S.members.find(x => x.id === id);
+const initials = n => (n||'?').slice(0,2);
+function avatar(m, size){ if(!m) return ''; const st = `width:${size}px;height:${size}px;font-size:${Math.round(size/3)}px;background:${m.color}`;
+  return `<span class="av" style="${st}">${m.avatar ? `<img alt="" src="${esc(m.avatar)}">` : esc(initials(m.name))}</span>`; }
+
+// ---------- pictures ----------
+const FLAG = `<svg class="flag" viewBox="0 0 9 6" role="img" aria-label="Zastava Tajlanda"><rect width="9" height="6" fill="#A51931"/><rect y="1" width="9" height="4" fill="#F4F5F8"/><rect y="2" width="9" height="2" fill="#2D2A4A"/></svg>`;
+const SCENE = `<svg class="scene" viewBox="0 0 390 230" role="img" aria-label="Hram i longtail čamac na vodi">
+<g fill="none" stroke="#E8C36A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="300" cy="62" r="20" stroke-opacity=".55"/>
+<path d="M150 150 H240 M160 150 L165 128 H225 L230 150 M170 128 L175 108 H215 L220 128 M180 108 L184 90 H206 L210 108 M187 90 L195 46 L203 90 M195 46 V30"/>
+<path d="M168 150 V140 M180 150 V140 M210 150 V140 M222 150 V140" stroke-opacity=".6"/>
+<path d="M82 150 L87 134 H109 L114 150 M90 134 L98 106 L106 134 M98 106 V94 M276 150 L281 134 H303 L308 150 M284 134 L292 106 L300 134 M292 106 V94"/>
+<path d="M40 152 C42 128 46 110 54 96 M54 96 C42 90 30 94 22 104 M54 96 C48 84 36 80 26 82 M54 96 C62 84 74 82 84 86 M54 96 C66 94 76 100 82 110"/>
+<path d="M350 152 C350 132 352 118 358 106 M358 106 C348 100 340 102 334 110 M358 106 C364 96 374 96 382 100"/>
+<path d="M0 160 H390" stroke-opacity=".5"/>
+<path d="M0 176 C20 170 40 182 60 176 S100 170 120 176 S160 182 180 176 S220 170 240 176 S280 182 300 176 S340 170 360 176 S380 180 390 176" stroke-opacity=".45"/>
+<path d="M0 214 C20 208 40 220 60 214 S100 208 120 214 S160 220 180 214 S220 208 240 214 S280 220 300 214 S340 208 360 214 S380 218 390 214" stroke-opacity=".35"/>
+<path d="M108 194 H262 Q284 190 300 166 Q294 192 276 202 H120 Q110 200 108 194Z" fill="#2D2A4A"/>
+<path d="M150 194 V180 H228 V194 M150 180 Q189 172 228 180"/>
+<path d="M110 194 L74 206 M74 206 L70 214"/></g>
+<circle cx="298" cy="170" r="3.2" fill="#F2A33A"/><circle cx="294" cy="176" r="3.2" fill="#F27BA0"/><circle cx="291" cy="182" r="3.2" fill="#F2A33A"/><circle cx="289" cy="188" r="3.2" fill="#FFFFFF"/>
+<path d="M296 168 L304 160 M298 172 L308 168" stroke="#F27BA0" stroke-width="1.6" stroke-linecap="round"/></svg>`;
+const ICONS = {
+  tuktuk: '<path d="M30 78 H84 V56 Q84 44 72 44 H46 Q36 44 34 54 L30 78Z M46 44 V78 M84 66 H92 V78 H84"/><circle cx="40" cy="82" r="7"/><circle cx="80" cy="82" r="7"/><path d="M50 52 H68 V62 H50Z"/>',
+  elephant: '<path d="M30 74 C30 58 40 50 56 50 C66 50 72 54 76 60 C84 58 90 62 90 70 C90 78 86 84 84 90 M84 90 C82 94 78 94 78 90 M30 74 V84 M40 78 V86 M62 76 V86 M72 76 V84 M76 60 C74 66 72 70 68 72 M82 64 h.01"/>',
+  wave: '<path d="M26 74 C34 54 54 46 70 52 C60 54 54 62 58 70 C64 80 80 78 92 70"/><path d="M26 86 C36 82 44 90 54 86 S72 82 82 86 S92 88 94 86"/>',
+  palm: '<path d="M58 90 C58 74 60 62 64 50 M64 50 C54 44 42 46 34 54 M64 50 C60 40 50 34 40 34 M64 50 C70 40 80 38 90 42 M64 50 C74 50 82 56 86 64"/><path d="M34 90 H86"/>',
+  cliffs: '<path d="M24 90 L34 56 Q38 44 44 56 L50 72 L58 40 Q62 30 68 42 L78 70 L84 58 Q88 52 92 62 L96 90Z"/><path d="M20 92 C30 88 40 96 50 92 S70 88 80 92 S94 94 100 92"/>'
+};
+function stamp(s, size){ return `<svg width="${size}" height="${size}" viewBox="0 0 120 120" role="img" aria-label="Pečat ${esc(s.name)}"><g fill="none" stroke="#A51931" stroke-linecap="round" stroke-linejoin="round"><circle cx="60" cy="60" r="56" stroke-width="2.5"/><circle cx="60" cy="60" r="49" stroke-width="1.2" stroke-dasharray="3 3"/><g stroke-width="2">${ICONS[s.icon]||''}</g></g><text x="60" y="38" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="9.5" letter-spacing="1" fill="#A51931">${esc(s.name.split(' (')[0].toUpperCase())}</text><text x="60" y="104" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="9" letter-spacing="1.2" fill="#A51931">${esc((s.nights||'').toUpperCase())}</text></svg>`; }
+const TABICON = {
+  danas:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+  plan:'<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+  pasos:'<rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="10" r="3.5"/><path d="M9 17h6"/>',
+  rez:'<path d="M3 9a2 2 0 002-2h14a2 2 0 002 2v2a2 2 0 000 4v2a2 2 0 00-2 2H5a2 2 0 00-2-2v-2a2 2 0 000-4z"/>'
+};
+
+// ---------- votes ----------
+const voteOf = (aid, mid) => S.votes.find(v => v.activity_id === aid && v.member_id === mid)?.value;
+const counts = aid => { const c = {da:0,mozda:0,ne:0}; S.votes.forEach(v => { if (v.activity_id === aid) c[v.value]++; }); return c; };
+const score = aid => { const c = counts(aid); return c.da*2 + c.mozda - c.ne*2; };
+
+// ---------- screens ----------
+function header(extra){ const m = me();
+  return `<header class="top"><div class="brand"><div class="brand-l">${FLAG} TAJLAND 2027</div>
+  <button class="me" data-act="profile" aria-label="Moj profil">${m && m.avatar ? `<img alt="" src="${esc(m.avatar)}">` : esc(initials(m?.name))}</button></div>${extra||''}</header>`; }
+
+function tabs(){ const t = [['danas','Danas'],['plan','Plan'],['pasos','Pasoš'],['rez','Rezervacije']];
+  return `<nav class="tabs" aria-label="Glavni meni"><div class="in">${t.map(([k,l]) => `<button class="tab" data-tab="${k}" ${S.tab===k?'aria-current="page"':''}><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${TABICON[k]}</svg>${l}</button>`).join('')}</div></nav>`; }
+
+function viewDanas(){ const m = me();
+  const greet = m.greeting === 'khrap' ? 'Sawasdee khrap' : 'Sawasdee ka';
+  const unvoted = S.acts.filter(a => !voteOf(a.id, meId)).length;
+  const top = S.acts.filter(a => counts(a.id).da + counts(a.id).mozda > 0).sort((a,b) => score(b.id) - score(a.id)).slice(0,5);
+  const stopName = id => S.stops.find(s => s.id === id)?.name || '';
+  return header(`<div class="hero"><h1>${greet}, ${esc(m.name)}!</h1><p>Dobrodošli na naše putovanje po Tajlandu</p>${SCENE}</div>`) +
+  `<main>
+    <p class="label">Naša ruta</p>
+    <div class="route">${S.stops.map((s,i) => (i?'<span class="dash"></span>':'') + `<button class="st" data-stop="${s.id}" aria-label="${esc(s.name)}">${esc(s.name.split(' (')[0].replace(' ','\n')).replace('\n','<br>')}</button>`).join('')}</div>
+    ${unvoted ? `<button class="nudge" data-tab="pasos"><span>Imaš <b>${unvoted}</b> ${unvoted===1?'aktivnost':'aktivnosti'} bez tvog glasa</span><span aria-hidden="true">→</span></button>` : ''}
+    <p class="label">Najpopularnije za sada</p>
+    ${top.length ? `<div class="top3">${top.map((a,i) => { const c = counts(a.id); return `<button class="trow" data-stop="${a.stop_id}"><span class="rank">${i+1}</span><span class="tt">${esc(a.title)}<small>${esc(stopName(a.stop_id))} · Da ${c.da} · Možda ${c.mozda}</small></span></button>`; }).join('')}</div>` : `<div class="card empty">Još niko nije glasao. Otvori Pasoš i počni!</div>`}
+  </main>`; }
+
+function viewPasos(){ const s = S.stops.find(x => x.id === S.stop) || S.stops[0];
+  const acts = S.acts.filter(a => a.stop_id === s.id);
+  const m = me();
+  return header() +
+  `<div class="chips" role="group" aria-label="Gradovi">${S.stops.map(x => `<button class="chip" data-stop="${x.id}" aria-pressed="${x.id===s.id}">${esc(x.name)}</button>`).join('')}</div>
+  <section class="cityhead">${stamp(s, 108)}<div><h1>${esc(s.name)}</h1><p>${esc(s.blurb||'')}</p></div></section>
+  <div class="acts">
+    ${acts.length ? acts.map(a => { const c = counts(a.id); const mine = voteOf(a.id, meId);
+      const yes = S.votes.filter(v => v.activity_id === a.id && v.value === 'da').map(v => mem(v.member_id)).filter(Boolean);
+      const canDel = m.can_edit && (a.created_by === meId || m.is_admin);
+      return `<div class="act"><div class="ahead"><span class="aname">${esc(a.title)}${a.note ? `<span class="anote">${esc(a.note)}</span>` : ''}${a.link ? `<span class="anote"><a href="${esc(a.link)}" target="_blank" rel="noopener">Pogledaj link →</a></span>` : ''}</span>
+        ${yes.length ? `<span class="yes" aria-label="Da: ${esc(yes.map(y=>y.name).join(', '))}">${yes.map(y => avatar(y, 24)).join('')}</span>` : ''}
+        ${canDel ? `<button class="x" data-del="${a.id}" aria-label="Obriši ${esc(a.title)}">×</button>` : ''}</div>
+        <div class="votes" role="group" aria-label="Glas za ${esc(a.title)}">
+          ${[['da','Da'],['mozda','Možda'],['ne','Ne']].map(([k,l]) => `<button class="v" data-vote="${k}" data-a="${a.id}" ${mine===k?`data-on="${k}" aria-pressed="true"`:'aria-pressed="false"'}>${l} · ${c[k]}</button>`).join('')}
+        </div></div>`; }).join('') : `<div class="empty">Još nema aktivnosti za ${esc(s.name)}.</div>`}
+    ${m.can_edit ? `<button class="add" data-act="add">+ Dodaj svoju aktivnost</button>` : ''}
+  </div>`; }
+
+function viewSoon(title, text){ return header() + `<div class="soon">${stamp({name:title,icon:'palm',nights:'uskoro'}, 120)}<h1>${title}</h1><p>${text}</p></div>`; }
+
+function render(){
+  if (!code) { $root.innerHTML = `<div class="who">${FLAG}<h1>Tajland 2027</h1><p>Otvori aplikaciju preko porodičnog linka koji ti je Mina poslala.</p></div>`; return; }
+  if (!me()) { $root.innerHTML = `<div class="who"><div class="brand-l">${FLAG} TAJLAND 2027</div><h1>Ko si ti?</h1><p>Izaberi svoje ime. Telefon će te zapamtiti.</p><div class="pick">${S.members.map(m => `<button data-pick="${m.id}">${avatar(m, 72)}${esc(m.name)}</button>`).join('')}</div></div>`; return; }
+  let body = '';
+  if (S.tab === 'danas') body = viewDanas();
+  else if (S.tab === 'pasos') body = viewPasos();
+  else if (S.tab === 'plan') body = viewSoon('Plan', 'Plan po danima i kalendar stižu uskoro. Za sada glasajte u Pasošu, a najpopularnije aktivnosti ulaze u plan.');
+  else body = viewSoon('Rezervacije', 'Hoteli, letovi i brodovi na jednom mestu stižu uskoro.');
+  $root.innerHTML = `<div class="app">${body}</div>` + tabs();
+}
+
+// ---------- sheets ----------
+const bg = document.getElementById('sheetbg'), sheet = document.getElementById('sheet');
+function openSheet(html){ sheet.innerHTML = html; bg.classList.add('open'); const f = sheet.querySelector('input,textarea,button'); f && f.focus(); }
+function closeSheet(){ bg.classList.remove('open'); sheet.innerHTML = ''; }
+bg.addEventListener('click', e => { if (e.target === bg) closeSheet(); });
+
+function sheetAdd(){ const s = S.stops.find(x => x.id === S.stop);
+  openSheet(`<h2>Nova aktivnost · ${esc(s.name)}</h2><form id="fadd">
+  <div class="f"><label for="ft">Šta želiš da radimo?</label><input id="ft" type="text" maxlength="120" required placeholder="npr. Večera na plaži"></div>
+  <div class="f"><label for="fn">Napomena (nije obavezno)</label><textarea id="fn" maxlength="500"></textarea></div>
+  <div class="f"><label for="fl">Link, npr. TikTok (nije obavezno)</label><input id="fl" type="url" maxlength="500" placeholder="https://"></div>
+  <div class="row2"><button type="button" class="btn ghost" data-act="close">Otkaži</button><button class="btn" type="submit">Dodaj</button></div></form>`);
+  sheet.querySelector('#fadd').addEventListener('submit', async e => { e.preventDefault();
+    const title = sheet.querySelector('#ft').value.trim(); if (!title) return;
+    const note = sheet.querySelector('#fn').value.trim() || null; const link = sheet.querySelector('#fl').value.trim() || null;
+    try { const [row] = await api('/activities', { method:'POST', prefer:'return=representation', body:{ stop_id: s.id, title, note, link, created_by: meId } });
+      S.acts.push(row); closeSheet(); render(); toast('Dodato! Sad svi mogu da glasaju.'); }
+    catch(err){ toast('Nije sačuvano. Pokušaj ponovo.'); } });
+}
+
+function sheetDel(id){ const a = S.acts.find(x => x.id === id);
+  openSheet(`<h2>Obrisati „${esc(a.title)}“?</h2><p style="margin:0 0 18px;color:var(--muted)">Brišu se i svi glasovi za ovu aktivnost.</p><div class="row2"><button class="btn ghost" data-act="close">Ne</button><button class="btn red" id="dok">Obriši</button></div>`);
+  sheet.querySelector('#dok').addEventListener('click', async () => {
+    try { await api('/activities?id=eq.' + id, { method:'DELETE' }); S.acts = S.acts.filter(x => x.id !== id); S.votes = S.votes.filter(v => v.activity_id !== id); closeSheet(); render(); toast('Obrisano.'); }
+    catch(err){ toast('Nije obrisano. Pokušaj ponovo.'); } });
+}
+
+function sheetProfile(){ const m = me();
+  const admin = m.is_admin ? `<h2 style="margin-top:26px">Porodica</h2><p style="margin:-6px 0 6px;color:var(--muted);font-size:14px">Vidiš samo ti. Isključi „Uređuje“ da neko može samo da glasa.</p>
+    ${S.members.map(x => `<div class="mem">${avatar(x, 40)}<input type="text" value="${esc(x.name)}" data-rename="${x.id}" aria-label="Ime"><label class="tog"><input type="checkbox" data-edit="${x.id}" ${x.can_edit?'checked':''} ${x.id===meId?'disabled':''}>Uređuje</label><label class="tog"><input type="checkbox" data-male="${x.id}" ${x.greeting==='khrap'?'checked':''}>khrap</label></div>`).join('')}
+    <p style="font-size:12px;color:var(--muted);margin:8px 0 0">„khrap“ = muški pozdrav (Sawasdee khrap), inače „ka“.</p>
+    <button class="btn ghost" style="width:100%;margin-top:14px" data-act="copylink">Kopiraj porodični link</button>` : '';
+  openSheet(`<h2>Moj profil</h2><div style="display:flex;align-items:center;gap:16px;margin-bottom:16px">${avatar(m, 72)}<div><div class="serif" style="font-size:22px;font-weight:700">${esc(m.name)}</div>
+    <label class="btn ghost" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 14px;margin-top:6px;font-size:14px;cursor:pointer">Promeni sliku<input type="file" accept="image/*" id="pic" style="display:none"></label></div></div>
+    ${admin}
+    <div class="row2" style="margin-top:20px"><button class="btn ghost" data-act="switch">Nisam ${esc(m.name)}</button><button class="btn" data-act="close">Gotovo</button></div>`);
+  sheet.querySelector('#pic').addEventListener('change', e => { const f = e.target.files[0]; if (f) setPhoto(f, meId); });
+  sheet.querySelectorAll('[data-rename]').forEach(el => el.addEventListener('change', async () => { const name = el.value.trim(); if (!name) return;
+    try { await api('/members?id=eq.' + el.dataset.rename, { method:'PATCH', body:{ name } }); mem(el.dataset.rename).name = name; render(); toast('Sačuvano.'); } catch(e){ toast('Nije sačuvano.'); } }));
+  sheet.querySelectorAll('[data-edit]').forEach(el => el.addEventListener('change', async () => {
+    try { await api('/members?id=eq.' + el.dataset.edit, { method:'PATCH', body:{ can_edit: el.checked } }); mem(el.dataset.edit).can_edit = el.checked; toast('Sačuvano.'); } catch(e){ el.checked = !el.checked; toast('Nije sačuvano.'); } }));
+  sheet.querySelectorAll('[data-male]').forEach(el => el.addEventListener('change', async () => { const g = el.checked ? 'khrap' : 'ka';
+    try { await api('/members?id=eq.' + el.dataset.male, { method:'PATCH', body:{ greeting: g } }); mem(el.dataset.male).greeting = g; render(); toast('Sačuvano.'); } catch(e){ el.checked = !el.checked; toast('Nije sačuvano.'); } }));
+}
+
+function setPhoto(file, id){ const img = new Image(); const url = URL.createObjectURL(file);
+  img.onload = async () => { const size = 240, c = document.createElement('canvas'); c.width = c.height = size; const x = c.getContext('2d');
+    const s = Math.min(img.width, img.height); x.drawImage(img, (img.width-s)/2, (img.height-s)/2, s, s, 0, 0, size, size); URL.revokeObjectURL(url);
+    const data = c.toDataURL('image/jpeg', .82);
+    try { await api('/members?id=eq.' + id, { method:'PATCH', body:{ avatar: data } }); mem(id).avatar = data; render(); sheetProfile(); toast('Slika sačuvana!'); }
+    catch(e){ toast('Slika nije sačuvana.'); } };
+  img.onerror = () => toast('Ta slika ne može da se otvori.');
+  img.src = url; }
+
+// ---------- events ----------
+document.addEventListener('click', async e => {
+  const t = e.target.closest('button,[data-act]'); if (!t) return;
+  if (t.dataset.pick) { meId = t.dataset.pick; ls.set('tj_me', meId); render(); return; }
+  if (t.dataset.tab) { S.tab = t.dataset.tab; render(); scrollTo(0,0); return; }
+  if (t.dataset.stop) { S.stop = t.dataset.stop; S.tab = 'pasos'; render(); scrollTo(0,0); return; }
+  if (t.dataset.del) { sheetDel(t.dataset.del); return; }
+  if (t.dataset.vote) {
+    const aid = t.dataset.a, val = t.dataset.vote, cur = voteOf(aid, meId);
+    const before = S.votes.slice();
+    S.votes = S.votes.filter(v => !(v.activity_id === aid && v.member_id === meId));
+    if (cur !== val) S.votes.push({ activity_id: aid, member_id: meId, value: val });
+    render();
+    try {
+      if (cur === val) await api(`/votes?activity_id=eq.${aid}&member_id=eq.${meId}`, { method:'DELETE' });
+      else await api('/votes?on_conflict=activity_id,member_id', { method:'POST', prefer:'resolution=merge-duplicates', body:{ activity_id: aid, member_id: meId, value: val, updated_at: new Date().toISOString() } });
+    } catch(err){ S.votes = before; render(); toast('Glas nije sačuvan. Proveri internet.'); }
+    return; }
+  const act = t.dataset.act;
+  if (act === 'add') sheetAdd();
+  else if (act === 'profile') sheetProfile();
+  else if (act === 'close') closeSheet();
+  else if (act === 'switch') { closeSheet(); meId = null; ls.del('tj_me'); render(); }
+  else if (act === 'copylink') { const link = location.origin + location.pathname + '#k=' + code;
+    try { await navigator.clipboard.writeText(link); toast('Link kopiran. Pošalji ga porodici.'); } catch(err){ toast(link); } }
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && bg.classList.contains('open')) closeSheet(); });
+
+async function refresh(){ if (bg.classList.contains('open')) return; try { await load(); render(); } catch(e){} }
+document.addEventListener('visibilitychange', () => { if (!document.hidden) refresh(); });
+setInterval(() => { if (!document.hidden) refresh(); }, 20000);
+
+(async () => {
+  if (!code) { render(); return; }
+  try { await load(); if (!S.members.length) { ls.del('tj_code'); code = null; } render(); }
+  catch(e){ $root.innerHTML = `<div class="loading">Ne mogu da se povežem. Proveri internet i osveži stranicu.</div>`; }
+})();
+}
+</script>
+</body>
+</html>
