@@ -124,7 +124,8 @@ const ls = { get(k){ try{return localStorage.getItem(k)}catch(e){return null} },
 // family code: from link (#k=...) once, then remembered
 let code = ls.get('tj_code');
 const hm = location.hash.match(/k=([A-Za-z0-9]+)/);
-if (hm) { code = hm[1]; ls.set('tj_code', code); history.replaceState(null, '', location.pathname + location.search); }
+if (hm) { code = hm[1]; ls.set('tj_code', code); }
+else if (code) { try { history.replaceState(null, '', location.pathname + location.search + '#k=' + code); } catch(e){} }
 let meId = ls.get('tj_me');
 let pin = ls.get('tj_pin');
 
@@ -242,7 +243,16 @@ function viewPasos(){ const s = S.stops.find(x => x.id === S.stop) || S.stops[0]
 function viewSoon(title, text){ return header() + `<div class="soon">${stamp({name:title,icon:'palm',nights:'uskoro'}, 120)}<h1>${title}</h1><p>${text}</p></div>`; }
 
 function render(){
-  if (!code) { $root.innerHTML = `<div class="who">${FLAG}<h1>Tajland 2027</h1><p>Otvori aplikaciju preko porodičnog linka koji ti je Mina poslala.</p></div>`; return; }
+  if (!code) { $root.innerHTML = `<div class="who"><div class="brand-l">${FLAG} TAJLAND 2027</div><h1>Dobrodošli!</h1><p>Zalepi porodični link koji ti je Mina poslala.</p>
+    <form id="fcode"><div class="f"><label for="fc" style="color:#fff">Porodični link</label><input id="fc" type="text" autocomplete="off" placeholder="https://minaste22.github.io/…" style="color:#2D2A4A"></div>
+    <p id="cerr" role="alert" style="color:#F6C1D1;font-weight:700;min-height:22px;margin:0 0 8px"></p><button class="btn" type="submit" style="width:100%;background:#E8C36A;color:#2D2A4A">Uđi</button></form></div>`;
+    document.getElementById('fcode').addEventListener('submit', async e => { e.preventDefault();
+      const v = document.getElementById('fc').value.trim(); const mm = v.match(/k=([A-Za-z0-9]+)/) || v.match(/^([A-Za-z0-9]{12,})$/);
+      if (!mm) { document.getElementById('cerr').textContent = 'To nije pravi link. Kopiraj ceo link iz poruke.'; return; }
+      code = mm[1];
+      try { await load(); if (!S.members.length) throw 0; ls.set('tj_code', code); history.replaceState(null, '', location.pathname + '#k=' + code); render(); }
+      catch(err){ code = null; document.getElementById('cerr').textContent = 'Link ne radi. Proveri ga i pokušaj ponovo.'; } });
+    return; }
   if (me() && me().has_pin && !pin) { meId = null; ls.del('tj_me'); }
   if (!me()) { $root.innerHTML = `<div class="who"><div class="brand-l">${FLAG} TAJLAND 2027</div><h1>Ko si ti?</h1><p>Izaberi svoje ime. Telefon će te zapamtiti.</p><div class="pick">${S.members.map(m => `<button data-pick="${m.id}">${avatar(m, 72)}${esc(m.name)}</button>`).join('')}</div></div>`; return; }
   let body = '';
